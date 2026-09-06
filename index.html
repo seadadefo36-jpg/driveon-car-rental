@@ -1,1 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rent premium, reliable cars with DRIVEON. Browse our fleet, compare vehicles, choose your dates, and book your next journey with ease.">
+    <meta property="og:title" content="DRIVEON — Premium Car Rental">
+    <meta property="og:description" content="Rent premium, reliable cars with DRIVEON.">
+    <meta property="og:type" content="website">
+    
+    <title>DRIVEON — Premium Car Rental</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fas fa-car"></i>
+                <span>DRIVEON</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#cars" class="nav-link">Cars</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#offers" class="nav-link">Offers</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link login-link">Login</a></li>
+                <li><a href="#" class="nav-link book-btn" id="nav-book-btn">Book Now</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="hero">
+        <div class="hero-bg">
+            <img src="images/hero-car.jpg" alt="Luxury sports car">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Drive Your Journey.</h1>
+            <p class="hero-subtitle">Premium cars. Flexible rentals. A simpler way to get where you're going.</p>
+            
+            <!-- BOOKING PANEL -->
+            <div class="booking-panel">
+                <div class="booking-form">
+                    <div class="form-group">
+                        <label for="pickup-location">Pick-up Location</label>
+                        <input type="text" id="pickup-location" placeholder="Enter city or airport code">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dropoff-location">Drop-off Location</label>
+                        <input type="text" id="dropoff-location" placeholder="Enter city or airport code">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pickup-date">Pick-up Date</label>
+                        <input type="date" id="pickup-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="return-date">Return Date</label>
+                        <input type="date" id="return-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pickup-time">Pick-up Time</label>
+                        <input type="time" id="pickup-time" value="09:00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="return-time">Return Time</label>
+                        <input type="time" id="return-time" value="09:00">
+                    </div>
+                    
+                    <button class="btn btn-primary btn-search" id="search-cars-btn">Search Cars</button>
+                </div>
+                
+                <div id="search-summary" class="search-summary" style="display: none;">
+                    <p><strong>Searching for:</strong> <span id="summary-text"></span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST FEATURES -->
+    <section class="trust-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Easy Booking</h3>
+                    <p>Simple, fast, and transparent booking process in minutes</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Fully Insured</h3>
+                    <p>Comprehensive insurance coverage for peace of mind</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support whenever you need it</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Flexible Rentals</h3>
+                    <p>Modify or cancel your booking anytime without hassle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART SEARCH & FILTERS -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-wrapper">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="car-search" placeholder="Search by car name or model...">
+                </div>
+                
+                <div class="filter-group">
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="economy">Economy</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="luxury">Luxury</option>
+                        <option value="sports">Sports</option>
+                        <option value="electric">Electric</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="transmission-filter">
+                        <option value="">All Transmissions</option>
+                        <option value="automatic">Automatic</option>
+                        <option value="manual">Manual</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="fuel-filter">
+                        <option value="">All Fuels</option>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="hybrid">Hybrid</option>
+                        <option value="electric">Electric</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="seats-filter">
+                        <option value="">All Seats</option>
+                        <option value="4">4 Seats</option>
+                        <option value="5">5 Seats</option>
+                        <option value="7">7 Seats</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="sort-filter">
+                        <option value="">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+                
+                <button class="btn-reset" id="reset-filters">Reset</button>
+            </div>
+            
+            <div class="results-info">
+                <p><span id="cars-count">6</span> cars found</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR CARS -->
+    <section id="cars" class="popular-cars">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Cars</h2>
+                <p>Choose from our premium fleet of reliable vehicles</p>
+            </div>
+            
+            <div class="cars-grid" id="cars-container">
+                <!-- Cars will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CAR DETAILS MODAL -->
+    <div id="car-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-car-image" src="" alt="Car">
+                </div>
+                
+                <div class="modal-info">
+                    <h2 id="modal-car-name"></h2>
+                    
+                    <div class="modal-rating">
+                        <div class="stars" id="modal-car-rating"></div>
+                        <span id="modal-car-rating-text"></span>
+                    </div>
+                    
+                    <div class="modal-price">
+                        <span class="price-label">From</span>
+                        <span class="price-value" id="modal-car-price">$0</span>
+                        <span class="price-period">/day</span>
+                    </div>
+                    
+                    <div class="modal-specs">
+                        <div class="spec">
+                            <i class="fas fa-users"></i>
+                            <span id="modal-seats">5</span> Seats
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-door-open"></i>
+                            <span id="modal-doors">4</span> Doors
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-cog"></i>
+                            <span id="modal-transmission">Automatic</span>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-gas-pump"></i>
+                            <span id="modal-fuel">Petrol</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-specs">
+                        <div class="spec">
+                            <i class="fas fa-road"></i>
+                            Unlimited Mileage
+                        </div>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Features</h4>
+                        <ul id="modal-features-list">
+                        </ul>
+                    </div>
+                    
+                    <p id="modal-description" class="modal-description"></p>
+                    
+                    <div class="modal-actions">
+                        <button class="btn btn-primary btn-book-modal" id="book-modal-btn">Book This Car</button>
+                        <button class="btn btn-secondary modal-close-btn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Simple steps to start your journey</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">01</div>
+                    <h3>Choose Your Car</h3>
+                    <p>Browse our fleet and select the vehicle that fits your journey.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">02</div>
+                    <h3>Select Your Dates</h3>
+                    <p>Choose your pickup and return dates that work for you.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">03</div>
+                    <h3>Enjoy Your Drive</h3>
+                    <p>Confirm your booking and start your adventure with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE DRIVEON -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose DRIVEON</h2>
+                <p>Experience the difference with our premium service</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Wide Range of Vehicles</h3>
+                    <p>From economy to luxury, find the perfect car for any occasion</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees. See exactly what you'll pay upfront</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Clean & Inspected</h3>
+                    <p>Every vehicle is thoroughly cleaned and regularly maintained</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Flexible Pickup Options</h3>
+                    <p>Choose from multiple convenient pickup locations</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Easy Cancellation</h3>
+                    <p>Cancel free of charge up to 24 hours before pickup</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always ready to assist you anytime</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure Booking</h3>
+                    <p>Your data is protected with industry-leading security</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Premium Experience</h3>
+                    <p>Enjoy a luxury rental experience at every step</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFERS -->
+    <section id="offers" class="special-offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Special Offers</h2>
+                <p>Get exclusive deals on your next rental</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card fade-in">
+                    <div class="offer-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="offer-badge">15% OFF</span>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Weekend Escape</h3>
+                        <p>Book your weekend getaway and save 15% on any vehicle</p>
+                        <p class="offer-validity"><i class="fas fa-calendar"></i> Valid till Dec 31, 2024</p>
+                        <button class="btn btn-outline btn-offer-book">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card fade-in">
+                    <div class="offer-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="offer-badge">25% OFF</span>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Long Stay Discount</h3>
+                        <p>Rent for 7+ days and save up to 25% on your total</p>
+                        <p class="offer-validity"><i class="fas fa-calendar"></i> Valid till Dec 31, 2024</p>
+                        <button class="btn btn-outline btn-offer-book">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card fade-in">
+                    <div class="offer-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="offer-badge">PREMIUM</span>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Luxury Experience</h3>
+                        <p>Drive premium luxury vehicles with complimentary upgrades</p>
+                        <p class="offer-validity"><i class="fas fa-calendar"></i> Valid till Dec 31, 2024</p>
+                        <button class="btn btn-outline btn-offer-book">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="offer-card fade-in">
+                    <div class="offer-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="offer-badge">10% OFF</span>
+                    </div>
+                    <div class="offer-content">
+                        <h3>First Rental</h3>
+                        <p>New customers get 10% discount on their first booking</p>
+                        <p class="offer-validity"><i class="fas fa-calendar"></i> Valid till Dec 31, 2024</p>
+                        <button class="btn btn-outline btn-offer-book">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LUXURY SECTION -->
+    <section class="luxury-section">
+        <div class="luxury-content">
+            <h2>Arrive in Style</h2>
+            <p>Exceptional luxury vehicles for those who demand excellence</p>
+        </div>
+        
+        <div class="luxury-grid">
+            <div class="luxury-car fade-in">
+                <img src="images/mercedes-s-class.jpg" alt="Mercedes-Benz S-Class">
+                <div class="luxury-info">
+                    <h3>Mercedes-Benz S-Class</h3>
+                    <p>Ultimate luxury sedan with cutting-edge technology</p>
+                    <span class="price">$299/day</span>
+                </div>
+            </div>
+            
+            <div class="luxury-car fade-in">
+                <img src="images/bmw-7-series.jpg" alt="BMW 7 Series">
+                <div class="luxury-info">
+                    <h3>BMW 7 Series</h3>
+                    <p>Performance meets prestige in this executive masterpiece</p>
+                    <span class="price">$279/day</span>
+                </div>
+            </div>
+            
+            <div class="luxury-car fade-in">
+                <img src="images/porsche-911.jpg" alt="Porsche 911">
+                <div class="luxury-info">
+                    <h3>Porsche 911</h3>
+                    <p>Legendary sports car that delivers pure driving excitement</p>
+                    <span class="price">$399/day</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real experiences from real travelers</p>
+            </div>
+            
+            <div class="testimonials-wrapper">
+                <div class="testimonials-slider" id="testimonials-slider">
+                    <!-- Testimonials will be rendered here by JavaScript -->
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prev-testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next" id="next-testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots" id="testimonials-dots">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT DRIVEON -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About DRIVEON</h2>
+                    <p>At DRIVEON, we believe that every journey deserves a great vehicle. Founded in 2015, we've been dedicated to providing premium car rental experiences that exceed expectations. Our mission is simple: to make quality car rentals accessible, transparent, and enjoyable for everyone.</p>
+                    <p>With a passion for exceptional service and a commitment to customer satisfaction, we've grown from a small startup to one of the leading car rental platforms. Today, we're proud to serve thousands of happy travelers across 25 locations worldwide.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat fade-in">
+                        <h3 class="stat-number" data-target="500">0</h3>
+                        <p>+Cars Available</p>
+                    </div>
+                    <div class="stat fade-in">
+                        <h3 class="stat-number" data-target="10000">0</h3>
+                        <p>+Happy Customers</p>
+                    </div>
+                    <div class="stat fade-in">
+                        <h3 class="stat-number" data-target="25">0</h3>
+                        <p>+Locations Worldwide</p>
+                    </div>
+                    <div class="stat fade-in">
+                        <h3 class="stat-number" data-target="24">0</h3>
+                        <p>/7 Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our rental service</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What documents do I need to rent a car?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You'll need a valid driver's license, a credit card for the security deposit, and proof of insurance. International customers will need a passport and an International Driving Permit.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I cancel my booking?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! You can cancel free of charge up to 24 hours before your scheduled pickup time. Cancellations made within 24 hours may incur a fee.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is insurance included in the rental price?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Basic insurance is included with all our rentals. You can upgrade to premium insurance for additional coverage and lower deductibles.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I choose a different pickup location?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We have multiple pickup locations in each city. You can choose your preferred location during the booking process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What happens if I return the car late?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Late returns incur a charge of $15 per hour or $75 per day, whichever is greater. We recommend returning your car 15 minutes early to avoid any additional charges.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I extend my rental?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can extend your rental anytime by contacting our support team or through your account. Subject to availability, extensions are processed at the current daily rate.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer luxury vehicles?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a premium selection of luxury vehicles including Mercedes-Benz, BMW, Porsche, and more. Browse our luxury collection or contact our concierge for personalized recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING MODAL -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content booking-modal-content">
+            <button class="modal-close booking-modal-close">&times;</button>
+            
+            <div class="booking-steps">
+                <!-- Step indicators will be rendered here -->
+            </div>
+            
+            <div class="booking-step-content">
+                <!-- Step content will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-form-section">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    
+                    <div id="contact-success" class="contact-success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-section">
+                    <div class="contact-info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>456 King Street West<br>Toronto, ON M5V 1L6<br>Canada</p>
+                    </div><div class="contact-info-section">
+    
+    
+                    
+                    <div class="contact-info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+1 (416) 555-0123<br>Mon - Fri: 8am - 6pm<br>Sat: 9am - 5pm</p>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>support@driveon.com<br>bookings@driveon.com<br>info@driveon.com</p>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 8am - 8pm<br>Saturday: 9am - 6pm<br>Sunday: 10am - 4pm</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-car"></i>
+                        <span>DRIVEON</span>
+                    </div>
+                    <p>Premium car rental service for every journey. Drive with confidence.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#cars">Cars</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#cars">Vehicle Rentals</a></li>
+                        <li><a href="#cars">Long Term Rentals</a></li>
+                        <li><a href="#">Corporate Rentals</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DRIVEON. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+    
+</body>
+</html>
 
