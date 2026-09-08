@@ -2669,5 +2669,182 @@ input:focus-visible {
 }
 
 
+/* ============================================
+   DRIVEON - STABLE TYPOGRAPHY
+   Prevent Chrome Desktop Site font scaling
+   ============================================ */
 
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Keep heading font consistent */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Stable desktop/tablet typography */
+h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+    line-height: 1.25;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Hero */
+.hero-title {
+    font-size: clamp(2.2rem, 5vw, 4.5rem) !important;
+    line-height: 1.1 !important;
+}
+
+.hero-subtitle {
+    font-size: clamp(0.95rem, 1.5vw, 1.25rem) !important;
+}
+
+/* Navigation */
+.navbar-logo,
+.logo,
+.logo-text,
+.logo span {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-menu a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+}
+
+/* Buttons */
+button,
+.btn,
+.book-btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+/* Form controls */
+input,
+select,
+textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+/* ============================================
+   MOBILE TYPOGRAPHY
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    h4 {
+        font-size: 1.1rem !important;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.15 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+
+    .navbar-logo {
+        font-size: 1.2rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 0.95rem !important;
+    }
+
+    .btn {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ============================================
+   SMALL MOBILE
+   ============================================ */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.25rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+    }
+
+    .btn {
+        font-size: 0.9rem !important;
+    }
+}
 
